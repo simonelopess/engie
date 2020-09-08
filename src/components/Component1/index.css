@@ -1,0 +1,60 @@
+
+header{
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 10px;
+}
+
+
+.select-block{
+    position: relative;
+}
+.select-block select{
+    width: 100%;
+    height: 3rem;
+    border: none;
+    background: #2D2D2D;
+    color: rgb(201, 199, 199);;
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.status{
+    display: flex;
+    background: red;
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 0.75em;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.info{
+    margin-top: 5%;
+}
+
+.info::after{
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: rgb(77, 75, 75);
+    margin-top: 4%;
+}
+.serial, .date-install, .date-concert{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 2%;
+}
+
+.operatingTime{
+    margin-top: 20px;
+}
+.current-operatingTime, .total-operatingTime{
+    font-size: 2em;
+    margin-top: 15px;
+}

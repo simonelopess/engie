@@ -1,0 +1,30 @@
+:root{
+    --component-background: #2D2D2D;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.container{
+    width: 95%;
+    height: 75%;
+    margin-top: 2%;
+}
+
+.row1
+{
+    display: grid;
+    grid-template-columns: 480px 480px;    
+    height: 45%;
+    gap: 0.5%;
+    margin-top: 0.5%;
+}
+
+.row1 div{
+    border-radius: 5px;
+    background: var(--component-background);    
+}
+.row1 .first-card, .row1 .second-card{
+    padding: 3%;
+}
