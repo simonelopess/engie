@@ -9,7 +9,7 @@ export default function Component2() {
     const [status, setStatus ] = useState([]);
  
     useEffect(()=>{
-        async function loadVariable(){
+        async function loadApi(){
             const [variable, status] = await Promise.all([
                 api.get(`/variable_raw`),
                 api.get(`/variable_status`)
@@ -18,8 +18,8 @@ export default function Component2() {
             setVariable(variable.data)
             setStatus(status.data)
         }
-        loadVariable();
-    },[]);
+        loadApi();
+    },[status]);
     //[variable, status] = monitora cada alteração na API
    
         return (
