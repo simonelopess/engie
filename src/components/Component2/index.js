@@ -1,36 +1,27 @@
-import React, {Component} from 'react';
+import React,{useState, useEffect} from 'react';
 import api from '../../services/api';
 
 import './index.css';
 
 
-export default class Component2 extends Component{
-    
-    
-    state = {
-        variable: {},
-        status: {},
-    }
-    
-    async componentDidMount(){
-        const [variable, status] = await Promise.all([
-            api.get(`/variable_raw`),
-            api.get(`/variable_status`)
-        ])
-        
-        this.setState({
-            variable: variable.data,
-            status: status.data
-        })       
-        this.interval = setInterval(()=>{
-            this.setState();
-        }, 8000)
-    }
+export default function Component2() {
+    const [variable, setVariable ] = useState([]);
+    const [status, setStatus ] = useState([]);
+ 
+    useEffect(()=>{
+        async function loadVariable(){
+            const [variable, status] = await Promise.all([
+                api.get(`/variable_raw`),
+                api.get(`/variable_status`)
+            ])
+
+            setVariable(variable.data)
+            setStatus(status.data)
+        }
+        loadVariable();
+    },[]);
+    //[variable, status] = monitora cada alteração na API
    
-   render(){
-       const {variable,status} = this.state;
-       
-       
         return (
             <>
                 <h2>Tempo Real do Dispositivo</h2>
@@ -86,9 +77,6 @@ export default class Component2 extends Component{
             </>
             
         )
-    
-    }
-
 }
 
 
