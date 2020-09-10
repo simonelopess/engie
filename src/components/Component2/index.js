@@ -25,38 +25,38 @@ export default function Component2() {
         }, 8000);
         return () => clearInterval(interval);   
         
-
     },[]);
     //[variable, status] = monitora cada alteração na API
+    
    
         return (
             <>
                 <h2>Tempo Real do Dispositivo</h2>
                 <div className="temperaturas-row">
                     <div>
-                        <p>{variable.current_measured} A</p>
+                        <p>{parseFloat(variable.current_measured).toFixed(2)} A</p>
                         <p>Corrente <br/>de Medida</p>
                     </div>
                     <div>
-                        <p>{variable.current_nominal} A </p>
+                        <p>{parseFloat(variable.current_nominal).toFixed(2)} A </p>
                         <p>Corrente <br/> Nominal</p>
                     </div>
                     <div>
-                        <p>{variable.temp_environment} ºC</p>
+                        <p>{parseFloat(variable.temp_environment).toFixed(2)} ºC</p>
                         <p>Temperatura<br/>Ambiente</p>
                     </div>                   
                 </div>
                 <div className="temperaturas-row">
                     <div>
-                        <p>{variable.temp_insufflation} ºC</p>
+                        <p>{parseFloat(variable.temp_insufflation).toFixed(2)} ºC</p>
                         <p>Temperatura <br/>de Insuflamento</p>
                     </div>
                     <div>
-                        <p>{variable.temp_ll} ºC</p>
+                        <p>{parseFloat(variable.temp_ll).toFixed(2)} ºC</p>
                         <p>Temperatura <br/> LL</p>
                     </div>
                     <div>
-                        <p>{variable.voltage} V</p>
+                        <p>{parseFloat(variable.voltage).toFixed(2)} V</p>
                         <p>Tensão<br/><br/></p>
                     </div>
                 </div>
