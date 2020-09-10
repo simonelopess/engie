@@ -14,12 +14,19 @@ export default function Component2() {
                 api.get(`/variable_raw`),
                 api.get(`/variable_status`)
             ])
-
             setVariable(variable.data)
             setStatus(status.data)
+            
         }
-        loadApi();
-    },[status]);
+        loadApi();    
+        
+        const interval = setInterval(() => {
+            loadApi();
+        }, 8000);
+        return () => clearInterval(interval);   
+        
+
+    },[]);
     //[variable, status] = monitora cada alteração na API
    
         return (
